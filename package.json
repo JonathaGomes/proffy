@@ -1,0 +1,17 @@
+{
+	"name": "proffy",
+	"version": "1.0.0",
+	"main": "index.js",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"author": "Jonatha Gomes <jonatha.dev.js@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^4.3.5",
+		"@proffy/eslint-config": "*"
+	}
+}
