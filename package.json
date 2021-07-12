@@ -1,20 +1,23 @@
 {
-	"name": "proffy",
-	"version": "1.0.0",
-	"main": "index.js",
-	"private": true,
-	"workspaces": {
-		"packages": [
-			"packages/*"
-		]
-	},
-	"author": "Jonatha Gomes <jonatha.dev.js@gmail.com>",
-	"license": "MIT",
-	"devDependencies": {
-		"@commitlint/cli": "^12.1.4",
-		"@commitlint/config-conventional": "^12.1.4",
-		"@proffy/eslint-config": "*",
-		"husky": "^7.0.1",
-		"typescript": "^4.3.5"
-	}
+  "name": "proffy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "author": "Jonatha Gomes <jonatha.dev.js@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.1",
+    "typescript": "^4.3.5"
+  }
 }
