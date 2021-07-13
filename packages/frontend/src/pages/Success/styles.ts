@@ -14,12 +14,12 @@ export const SuccessContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 75%;
-  width: 75%;
+  height: 90%;
+  width: 100%;
   align-items: center;
   background-image: url(${successBackground});
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 
   p {
