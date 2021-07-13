@@ -26,6 +26,7 @@ export const GlobalStyles = createGlobalStyle`
   --color-button-text: #ffffff;
   --color-box-base: #ffffff;
   --color-box-footer: #fafafc;
+	
 	font-size: 60%;
 }
 
@@ -48,7 +49,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  font-family: Lexend, sans-serif;
+  font-family: Archivo, sans-serif;
   color: var(--gray-800);
 }
 
