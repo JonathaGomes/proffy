@@ -1,5 +1,8 @@
 import { useHistory } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import { SuccessContainer, SuccessContent, Title } from "./styles";
+
 import successCheck from "../../assets/images/icons/success-check-icon.svg";
 
 function Success() {
@@ -10,6 +13,9 @@ function Success() {
   return (
     <SuccessContainer>
       <SuccessContent>
+        <Helmet>
+          <title>Proffy | Cadastro Salvo</title>
+        </Helmet>
         <img src={successCheck} alt="Perfil salvo!" />
         <Title>Cadastro salvo!</Title>
         <p>
