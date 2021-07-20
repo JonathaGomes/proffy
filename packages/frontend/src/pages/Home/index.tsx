@@ -19,7 +19,7 @@ import {
 
 function Home() {
   const history = useHistory();
-  function handleClick(path: string) {
+  function handleClickRedirect(path: string) {
     history.push(path);
   }
   return (
@@ -49,11 +49,11 @@ function Home() {
           </p>
         </Info>
         <Buttons>
-          <button onClick={() => handleClick("/give-classes")}>
+          <button onClick={() => handleClickRedirect("/study")}>
             <img src={study} alt="Estudar" />
             Estudar
           </button>
-          <button onClick={() => handleClick("/study")}>
+          <button onClick={() => handleClickRedirect("/give-classes")}>
             <img src={giveClasses} alt="Estudar" />
             Dar aulas
           </button>
