@@ -14,7 +14,7 @@ export const TopContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8.7rem;
+  gap: 5rem;
   height: 60vh;
   width: 100%;
 
@@ -26,11 +26,11 @@ export const TopContainer = styled.div`
 
   h1 {
     font-family: Poppins;
-    font-size: 3.6rem;
+    font-size: 2.25rem;
     color: var(--color-text-in-primary);
     font-weight: 400;
     @media (max-width: 1200px) {
-      font-size: 2.4rem;
+      font-size: 1.5rem;
     }
 
     @media (max-width: 550px) {
@@ -40,26 +40,26 @@ export const TopContainer = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 43rem;
+  width: 26rem;
 
   @media (max-width: 1200px) {
-    width: 32rem;
+    width: 20rem;
   }
 
   @media (max-width: 850px) {
-    width: 24rem;
+    width: 15rem;
   }
 `;
 
 export const Illustration = styled.img`
-  width: 60rem;
+  width: 37.5rem;
 
   @media (max-width: 1200px) {
-    width: 48rem;
+    width: 30rem;
   }
 
   @media (max-width: 850px) {
-    width: 32rem;
+    width: 20rem;
   }
 
   @media (max-width: 550px) {
@@ -74,7 +74,7 @@ export const BottomContainer = styled.div`
   height: 40vh;
   width: 100%;
   background: var(--color-background);
-  gap: 8rem;
+  gap: 5rem;
 
   @media (max-width: 850px) {
     display: flex;
@@ -84,8 +84,8 @@ export const BottomContainer = styled.div`
   @media (max-width: 550px) {
     display: flex;
     flex-direction: column;
-    height: 60rem;
-    gap: 2rem;
+    height: 37.5rem;
+    gap: 1.25rem;
     text-align: center;
   }
 `;
@@ -95,14 +95,10 @@ export const Info = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 13.5rem;
+  gap: 5rem;
 
   font-family: Poppins;
-  font-size: 2rem;
-
-  @media (max-width: 1200px) {
-    font-size: 1.8rem;
-  }
+  font-size: 1.25rem;
 
   @media (max-width: 550px) {
     display: flex;
@@ -117,7 +113,7 @@ export const Info = styled.div`
 
   p {
     &:nth-child(2) {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--color-text-complement);
       line-height: 2;
       text-align: right;
@@ -137,7 +133,7 @@ export const Buttons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1rem;
 
   @media (max-width: 550px) {
     display: flex;
@@ -148,28 +144,28 @@ export const Buttons = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.4rem;
-    height: 10.4rem;
-    padding: 0 6.4rem;
+    gap: 1.5rem;
+    height: 6.5rem;
+    padding: 0 4rem;
     border: none;
     font-family: Archivo;
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     border-radius: 8px;
     color: var(--color-title-in-primary);
     transition: background 0.2s;
 
     @media (max-width: 1200px) {
-      padding: 0 4.8rem;
-      font-size: 1.8rem;
+      padding: 0 3rem;
+      font-size: 1.125rem;
     }
 
     @media (max-width: 850px) {
-      font-size: 1.4rem;
+      font-size: 0.875rem;
       width: 100%;
     }
 
     @media (max-width: 550px) {
-      height: 8rem;
+      height: 5rem;
       width: 100%;
     }
 

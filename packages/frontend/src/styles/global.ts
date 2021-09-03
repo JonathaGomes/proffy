@@ -26,19 +26,27 @@ export const GlobalStyles = createGlobalStyle`
   --color-button-text: #ffffff;
   --color-box-base: #ffffff;
   --color-box-footer: #fafafc;
-	
-	font-size: 60%;
+
+}
+
+html {
+	@media (max-width: 1080px) {
+		font-size: 93.75%; // 15px
+	}
+	@media (max-width: 720) {
+		font-size: 87.5%; // 14px
+	}
 }
 
 body {
-  background: var(--color-background);
+	background: var(--color-background);
 }
 
 body,
 input,
 button,
 textarea {
-  font: 500 1.6rem Poppins;
+  font: 500 1rem Poppins;
   color: var(--color-text-base);
 }
 
@@ -51,14 +59,6 @@ h6 {
   font-weight: 600;
   font-family: Archivo, sans-serif;
   color: var(--gray-800);
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.5rem;
 }
 
 button {

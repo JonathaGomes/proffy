@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  height: 6.4rem;
+  height: 4.8rem;
   width: 100%;
   background: var(--color-primary-dark);
   border-bottom: 2px solid var(--color-primary-darker);
@@ -22,6 +22,10 @@ export const HeaderContent = styled.div`
 
 export const Arrow = styled.img`
   width: 3.2rem;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(0.8);
+  }
 `;
 
 export const Logo = styled.img`

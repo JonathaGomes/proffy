@@ -1,6 +1,9 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import Header from "../../components/Header";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import rocketImage from "../../assets/images/icons/rocket.svg";
 import warningImage from "../../assets/images/icons/warning.svg";
@@ -12,41 +15,34 @@ import {
   BottomContainer,
   BottomContent,
   InputBlock,
-  ScheduleInputBlock
+  ScheduleInputBlock,
+  MessageError
 } from "./styles";
+
+type FormDataProps = {
+  fullName: string;
+  email: string;
+  photoURL: string;
+  whatsapp: string;
+  biography: string;
+};
+
+const schema = yup.object().shape({
+  fullName: yup.string().required("O nome completo é obrigatório!"),
+  email: yup.string().email().required("O email é obrigatório!"),
+  photoURL: yup.string().url().required("A url da sua foto é obrigatória!"),
+  whatsapp: yup.string().required("O número do seu whatsapp é obrigatório!"),
+  biography: yup.string().required("Sua biografia é obrigatória!")
+});
 
 function SignUp() {
   const [teste, setTeste] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [photoURL, setPhotoURL] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [biography, setBiography] = useState("");
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (
-      fullName.trim() === "" ||
-      email === "" ||
-      photoURL === "" ||
-      whatsapp === ""
-    ) {
-      window.alert("PREENCHA TODOS OS CAMPOS");
-      return;
-    }
-
-    const user = {
-      name: fullName,
-      email,
-      photoURL,
-      whatsapp,
-      biography,
-      type: teste
-    };
-
-    console.log(user);
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormDataProps>({ resolver: yupResolver(schema) });
+  const onSubmit: SubmitHandler<FormDataProps> = data => console.log(data);
   return (
     <SignUpContainer>
       <Header title={"Cadastro"} />
@@ -72,29 +68,23 @@ function SignUp() {
         </TopContent>
       </TopContainer>
       <BottomContainer>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <BottomContent>
             <fieldset>
               <legend>Seus dados</legend>
               <InputBlock>
                 <label htmlFor="fullName">Nome Completo</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  value={fullName}
-                  onChange={e => setFullName(e.target.value)}
-                  required
-                />
+                <input id="fullName" {...register("fullName")} />
+                {errors.fullName && (
+                  <MessageError>{errors.fullName?.message}</MessageError>
+                )}
               </InputBlock>
               <InputBlock>
                 <label htmlFor="email">Seu melhor email</label>
-                <input
-                  type="text"
-                  id="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                />
+                <input id="email" {...register("email")} />
+                {errors.fullName && (
+                  <MessageError>{errors.fullName?.message}</MessageError>
+                )}
               </InputBlock>
               <InputBlock>
                 <div>
@@ -102,22 +92,14 @@ function SignUp() {
                     <label htmlFor="photoURL">
                       Link da sua foto <span>(comece com https://)</span>
                     </label>
-                    <input
-                      type="url"
-                      id="photoURL"
-                      value={photoURL}
-                      onChange={e => setPhotoURL(e.target.value)}
-                      required
-                    />
+                    <input type="url" id="photoURL" {...register("photoURL")} />
                   </div>
                   <div>
                     <label htmlFor="whatsapp">Whatsapp</label>
                     <input
                       type="string"
                       id="whatsapp"
-                      value={whatsapp}
-                      onChange={e => setWhatsapp(e.target.value)}
-                      required
+                      {...register("whatsapp")}
                     />
                   </div>
                 </div>
@@ -130,25 +112,8 @@ function SignUp() {
                   id="biography"
                   cols={30}
                   rows={10}
-                  value={biography}
-                  onChange={e => setBiography(e.target.value)}
-                  required
+                  {...register("biography")}
                 ></textarea>
-              </InputBlock>
-              <InputBlock>
-                <label htmlFor="type">O que você quer ser?</label>
-                <select
-                  id="type"
-                  value={teste}
-                  onChange={e => setTeste(e.target.value)}
-                  required
-                >
-                  <option value="" hidden disabled selected>
-                    Selecione uma opção
-                  </option>
-                  <option value="teacher">Quero ser um Proffy</option>
-                  <option value="student">Quero ser um Aluno</option>
-                </select>
               </InputBlock>
             </fieldset>
             {teste === "teacher" && (

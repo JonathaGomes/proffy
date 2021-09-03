@@ -23,14 +23,14 @@ export const TopContent = styled.div`
 
   h1 {
     color: var(--color-title-in-primary);
-    font-size: 3.6rem;
+    font-size: 2.25rem;
     font-family: Archivo;
     font-weight: 700;
-    line-height: 4.2rem;
+    line-height: 2.625rem;
   }
 
   div {
-    margin-top: 3.2rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
   }
@@ -38,16 +38,16 @@ export const TopContent = styled.div`
   p {
     display: flex;
     justify-content: space-between;
-    gap: 2.4rem;
+    gap: 1.5rem;
     color: var(--color-text-in-primary);
     font-family: Poppins;
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: 400;
   }
 
   span {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
+    font-size: 0.75rem;
+    line-height: 1.8rem;
   }
 `;
 
@@ -55,7 +55,7 @@ export const BottomContainer = styled.div`
   width: 100%;
   height: 60rem;
   background: var(--color-background);
-  margin-bottom: 12rem;
+  margin-bottom: 7.5rem;
 
   footer {
     height: 13.6rem;
@@ -250,9 +250,13 @@ export const ScheduleInputBlock = styled.div`
     padding: 2.4rem;
 
     font-family: Archivo;
-    font-size: 1.6rem;
+    font-size: 1rem;
     color: #6a6180;
     font-weight: 400;
     margin-top: 0.8rem;
   }
+`;
+
+export const MessageError = styled.span`
+  color: red;
 `;
