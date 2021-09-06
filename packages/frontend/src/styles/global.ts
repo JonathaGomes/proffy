@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
   --color-button-text: #ffffff;
   --color-box-base: #ffffff;
   --color-box-footer: #fafafc;
-
+	--color-error: #d53030;
 }
 
 html {

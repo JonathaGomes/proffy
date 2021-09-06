@@ -12,12 +12,20 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 16rem;
+  margin: 0 10rem;
   color: var(--color-text-in-primary);
 
   img {
     cursor: pointer;
   }
+
+	h2 { 
+		font-size: 1.2rem;
+	}
+
+	@media (max-width: 800px) {
+		margin: 0 2rem;
+	}
 `;
 
 export const Arrow = styled.img`
@@ -29,5 +37,10 @@ export const Arrow = styled.img`
 `;
 
 export const Logo = styled.img`
-  width: 4.6rem;
+  width: 4rem;
+
+
+	@media (max-width: 800px) {
+		visibility: hidden;
+	}
 `;

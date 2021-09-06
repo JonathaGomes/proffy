@@ -18,7 +18,9 @@ import {
 } from "./styles";
 
 function Home() {
+	
   const history = useHistory();
+
   function handleClickRedirect(path: string) {
     history.push(path);
   }

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import Header from "../../components/Header";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -16,7 +15,8 @@ import {
   BottomContent,
   InputBlock,
   ScheduleInputBlock,
-  MessageError
+  MessageError,
+	SelectBlock
 } from "./styles";
 
 type FormDataProps = {
@@ -25,6 +25,7 @@ type FormDataProps = {
   photoURL: string;
   whatsapp: string;
   biography: string;
+	typeUser: string;
 };
 
 const schema = yup.object().shape({
@@ -32,17 +33,18 @@ const schema = yup.object().shape({
   email: yup.string().email().required("O email é obrigatório!"),
   photoURL: yup.string().url().required("A url da sua foto é obrigatória!"),
   whatsapp: yup.string().required("O número do seu whatsapp é obrigatório!"),
-  biography: yup.string().required("Sua biografia é obrigatória!")
+  biography: yup.string().required("Sua biografia é obrigatória!"),
+	typeUser: yup.string().required("O tipo de usuário é obrigatório!").nullable()
 });
 
 function SignUp() {
-  const [teste, setTeste] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<FormDataProps>({ resolver: yupResolver(schema) });
   const onSubmit: SubmitHandler<FormDataProps> = data => console.log(data);
+
   return (
     <SignUpContainer>
       <Header title={"Cadastro"} />
@@ -61,7 +63,7 @@ function SignUp() {
             <p>
               <img src={rocketImage} alt="Foguete" />
               <span>
-                Preparare-se! <br /> vai ser o máximo.
+                Prepare-se! <br /> vai ser o máximo.
               </span>
             </p>
           </div>
@@ -82,10 +84,28 @@ function SignUp() {
               <InputBlock>
                 <label htmlFor="email">Seu melhor email</label>
                 <input id="email" {...register("email")} />
-                {errors.fullName && (
-                  <MessageError>{errors.fullName?.message}</MessageError>
+                {errors.email && (
+                  <MessageError>{errors.email?.message}</MessageError>
                 )}
               </InputBlock>
+							<SelectBlock>
+								<label>O que você deseja ser?</label>
+								<div>
+									<label htmlFor="student">
+										Um aluno a procura de um proffy
+										<input type="radio" {...register("typeUser")} name="typeUser" value="student" id="student" />
+									</label>
+								</div>
+								<div>
+									<label htmlFor="proffy">
+										Um proffy e poder dar aulas
+										<input type="radio" {...register("typeUser")} name="typeUser" value="proffy" id="proffy" />
+									</label>
+								</div>
+								{errors.typeUser && (
+									<MessageError>{errors.typeUser?.message}</MessageError>
+								)}
+							</SelectBlock>
               <InputBlock>
                 <div>
                   <div>
@@ -93,6 +113,9 @@ function SignUp() {
                       Link da sua foto <span>(comece com https://)</span>
                     </label>
                     <input type="url" id="photoURL" {...register("photoURL")} />
+										{errors.photoURL && (
+											<MessageError>{errors.photoURL?.message}</MessageError>
+										)}
                   </div>
                   <div>
                     <label htmlFor="whatsapp">Whatsapp</label>
@@ -101,6 +124,9 @@ function SignUp() {
                       id="whatsapp"
                       {...register("whatsapp")}
                     />
+										{errors.whatsapp && (
+											<MessageError>{errors.whatsapp?.message}</MessageError>
+										)}
                   </div>
                 </div>
               </InputBlock>
@@ -114,9 +140,12 @@ function SignUp() {
                   rows={10}
                   {...register("biography")}
                 ></textarea>
+								{errors.biography && (
+									<MessageError>{errors.biography?.message}</MessageError>
+								)}
               </InputBlock>
             </fieldset>
-            {teste === "teacher" && (
+            {/*{teste === "teacher" && (
               <>
                 <fieldset>
                   <legend>Sobre a aula</legend>
@@ -174,7 +203,7 @@ function SignUp() {
                   </ScheduleInputBlock>
                 </fieldset>
               </>
-            )}
+            )}*/}
           </BottomContent>
           <footer>
             <div>
