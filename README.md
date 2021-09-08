@@ -1,7 +1,7 @@
 <h1 align="center">
     <img alt="Proffy" src=".github/proffy.svg" height="100px" />
 		<br/>
-    Node.js | ReactJS | React Native
+    Node.js | ReactJS
 </h1>
 
 <p align="center">

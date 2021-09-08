@@ -18,25 +18,27 @@ export const TopContainer = styled.div`
   height: 60vh;
   width: 100%;
 
-  @media (max-width: 550px) {
-    text-align: center;
-    gap: 0;
-    height: 40vh;
-  }
-
+	
   h1 {
-    font-family: Poppins;
+		font-family: Poppins;
     font-size: 2.25rem;
     color: var(--color-text-in-primary);
     font-weight: 400;
-    @media (max-width: 1200px) {
-      font-size: 1.5rem;
-    }
 
-    @media (max-width: 550px) {
-      text-align: center;
+    @media (max-width: 1200px) {
+			font-size: 1.5rem;
     }
   }
+	
+	@media (max-width: 550px) {
+		text-align: center;
+		gap: 0;
+		height: 40vh;
+		
+		h1 {
+			text-align: center;
+		}
+	}
 `;
 
 export const Logo = styled.img`
@@ -118,13 +120,14 @@ export const Info = styled.div`
       line-height: 2;
       text-align: right;
 
-      @media (max-width: 550px) {
-        text-align: center;
-      }
-
+			
       img {
-        opacity: 0.5;
+				opacity: 0.5;
       }
+			
+			@media (max-width: 550px) {
+				text-align: center;
+			}
     }
   }
 `;
